@@ -22,22 +22,8 @@ public class Problem762 {
         return answer;
     }
 
-    public boolean isPrime(int src) {
-        double sqrt = Math.sqrt(src);
-        if (src < 2) {
-            return false;
-        }
-        if (src == 2 || src == 3) {
-            return true;
-        }
-        if (src % 2 == 0) {
-            return false;
-        }
-        for (int i = 3; i <= sqrt; i+=2) {
-            if (src % i == 0) {
-                return false;
-            }
-        }
-        return true;
+    public boolean isPrime(int x) {
+        return (x == 2 || x == 3 || x == 5 || x == 7 ||
+                x == 11 || x == 13 || x == 17 || x == 19);
     }
 }
