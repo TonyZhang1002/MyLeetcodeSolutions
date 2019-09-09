@@ -8,41 +8,35 @@ import java.util.Stack;
 */
 public class Problem860 {
    public boolean lemonadeChange(int[] bills) {
-      Stack<Integer> fives = new Stack();
-      Stack<Integer> tens = new Stack();
-      Stack<Integer> twenties = new Stack();
+      int[] cashIn = new int[] {0, 0, 0};
 
-      for (int i = 0; i < bills.length; i++) {
-         if (bills[i] == 5) {
-            fives.push(5);
-         }
-         if (bills[i] == 10) {
-            if (fives.isEmpty()) {
-               return false;
-            } else {
-               fives.pop();
-               tens.push(10);
+      for (int i : bills) {
+         int change = i - 5;
+
+         for (int j = 2; j > -1; j--) {
+            int billsValue = 5;
+            if (j == 2) {
+               billsValue = 20;
+            } else if (j == 1) {
+               billsValue = 10;
+            }
+            while (change > 0 && cashIn[j] > 0 && billsValue <= change) {
+               change -= billsValue;
+               cashIn[j] -= 1;
             }
          }
-         if (bills[i] == 20) {
-            if (tens.isEmpty()) {
-               if (fives.size() < 3) {
-                  return false;
-               } else {
-                  fives.pop();
-                  fives.pop();
-                  fives.pop();
-               }
-               twenties.push(20);
-            } else {
-               if (fives.isEmpty()) {
-                  return false;
-               } else {
-                  tens.pop();
-                  fives.pop();
-               }
-               twenties.push(20);
-            }
+
+         if (change != 0) {
+            return false;
+         }
+
+         if (i == 5) {
+            cashIn[0]++;
+         }
+         else if (i == 10) {
+            cashIn[1]++;
+         } else {
+            cashIn[2]++;
          }
       }
       return true;
