@@ -10,6 +10,8 @@ public class Problem11 {
             else
                 r--;
         }
+
         return maxarea;
+
     }
 }
