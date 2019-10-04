@@ -10,27 +10,21 @@ public class Problem861 {
             }
         }
 
-        for (int i = 0; i < A[0].length; i++) {
-            int balance = 0;
+        result += Math.pow(2,A[0].length - 1) * A.length;
+
+        for (int i = 1; i < A[0].length; i++) {
+            int one = 0;
+            int zero = 0;
             for (int j = 0; j < A.length; j++) {
                 if (A[j][i] == 1) {
-                    balance++;
+                    one++;
                 } else {
-                    balance--;
+                    zero++;
                 }
             }
-            if (balance < 0 ) {
-                flipVerti(A, i);
-            }
+            result += Math.pow(2,A[0].length - i - 1) * Math.max(one, zero);
         }
 
-        for (int i = 0; i < A.length; i++) {
-            for (int j = 0; j < A[0].length; j++) {
-                if (A[i][j] == 1) {
-                    result += Math.pow(2,A[0].length - j - 1);
-                }
-            }
-        }
         return result;
     }
 
@@ -41,10 +35,4 @@ public class Problem861 {
         }
     }
 
-    public void flipVerti (int [][] A, int line) {
-        for (int i = 0; i < A.length; i++) {
-            if (A[i][line] == 0) { A[i][line] = 1; }
-            else { A[i][line] = 0; }
-        }
-    }
 }
