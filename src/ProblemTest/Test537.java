@@ -17,4 +17,6 @@ public class Test537 {
     public void Test2 () {
         assertEquals("Wrong", "0+-2i", problem537.complexNumberMultiply("1+-1i","1+-1i"));
     }
+
+    
 }
