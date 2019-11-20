@@ -1,8 +1,6 @@
 package Problems;
 
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 
 public class Problem350 {
     public int[] intersect(int[] nums1, int[] nums2) {
