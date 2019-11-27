@@ -17,4 +17,5 @@ public class Test796 {
     public void test2 () {
         Assert.assertEquals("Wrong", false, problem796.rotateString("abcde", "cdgab"));
     }
+    
 }
