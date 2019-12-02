@@ -16,12 +16,6 @@ public class Test445 {
     }
 
     private ListNode buildListNode (int[] a) {
-        ListNode start = new ListNode(0);
-        ListNode through = start;
-        for (int i = 0; i < a.length; i++) {
-            through.next = new ListNode(a[i]);
-            through = through.next;
-        }
-        return start.next;
+        return getListNode(a);
     }
 }
