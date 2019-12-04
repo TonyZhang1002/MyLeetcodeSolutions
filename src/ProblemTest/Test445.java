@@ -16,6 +16,6 @@ public class Test445 {
     }
 
     private ListNode buildListNode (int[] a) {
-        return getListNode(a);
+        return null;
     }
 }
