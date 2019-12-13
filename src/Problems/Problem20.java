@@ -3,7 +3,7 @@ package Problems;
 import java.util.LinkedList;
 
 public class Problem20 {
-    public static boolean isValid(String s) {
+    public boolean isValid(String s) {
         LinkedList<Integer> flags = new LinkedList<>();
         char[] sChars = s.toCharArray();
 
@@ -22,7 +22,7 @@ public class Problem20 {
         return flags.isEmpty() ? true : false;
     }
 
-    private static boolean modifyPreFlag (LinkedList<Integer> flags, int index, char c) {
+    private boolean modifyPreFlag (LinkedList<Integer> flags, int index, char c) {
         int target = 0;
         if (c == 93)    target = 1;
         else if (c == 125)  target = 2;
@@ -32,9 +32,5 @@ public class Problem20 {
             flags.removeLast();
             return true;
         }
-    }
-
-    public static void main(String[] args) {
-        System.out.println(isValid(""));
     }
 }
