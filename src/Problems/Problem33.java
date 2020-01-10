@@ -11,8 +11,10 @@ public class Problem33 {
             return nums[0] == target ? 0 : -1;
         }
 
+        int m;
+
         while (l < r) {
-            int m = (l + r) / 2;
+             m = (l + r) / 2;
             if (nums[l] == target)  return l;
             if (nums[r] == target)  return r;
             if (nums[m] < nums[r]) {
@@ -32,12 +34,9 @@ public class Problem33 {
                     l = m + 1;
                 } else if (nums[m] > target && nums[l] < target) {
                     r = m - 1;
-                } else if (nums[m] < target && nums[l] < target && nums[r] < target) {
+                } else if (nums[m] < target) {
                     l = m + 1;
-                } else if (nums[m] < target && nums[l] > target && nums[r] < target) {
-                    r = m - 1;
-                }
-                else {
+                } else {
                     return m;
                 }
             }
