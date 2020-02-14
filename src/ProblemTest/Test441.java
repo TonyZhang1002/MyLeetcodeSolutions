@@ -20,6 +20,6 @@ public class Test441 {
 
     @Test
     public void test3 () {
-        Assert.assertEquals("Wrong", 0, problem441.arrangeCoins(0));
+        Assert.assertEquals("Wrong", 60070, problem441.arrangeCoins(1804289383));
     }
 }
